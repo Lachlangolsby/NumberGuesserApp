@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">NumberGuesser</string>
+    <string name="play_again">Play Again</string>
+    <string name="you_are_correct">You Are Correct !!!</string>
 </resources>
