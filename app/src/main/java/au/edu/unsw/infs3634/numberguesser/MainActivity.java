@@ -34,6 +34,7 @@ public class MainActivity<difference> extends AppCompatActivity {
                 i++;
                 assessGuess(randomResult, i);
                 attemptsRemaining(i, randomResult, Button);
+
             }
         });
 
@@ -50,6 +51,7 @@ public class MainActivity<difference> extends AppCompatActivity {
         TextView tv = (TextView) findViewById(R.id.highLowText);
         TextView tv2 = (TextView) findViewById(R.id.Attempts);
 
+
         if (difference < 0) {
             tv.setText("The number is higher than your previous guess !!");
             tv2.setText("You Have " + (5 - i) + " Attempts Remaining");
@@ -59,30 +61,27 @@ public class MainActivity<difference> extends AppCompatActivity {
             tv2.setText("You Have " + (5 - i) + " Attempts Remaining");
 
         } else if (difference == 0) {
-            tv.setText("You are correct");
-            tv2.setText("");
             Intent activityChangeIntent = new Intent(MainActivity.this, CorrectGuess.class);
             MainActivity.this.startActivity(activityChangeIntent);
+            Intent passNumber = new Intent(MainActivity.this, CorrectGuess.class);
+            passNumber.putExtra("randomNumber", randomNumber);
+            startActivity(passNumber);
+
 
         }
 
     }
 
-    public void attemptsRemaining(int i, int Number, Button Button) {
-        if (i == 5) {
-            TextView tv = (TextView) findViewById(R.id.highLowText);
-            tv.setText("The number is " + Number + " You lose !!");
-            Button.setText("Play Again");
-            Button.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    // Perform action on click
-                    Intent activityChangeIntent = new Intent(MainActivity.this, MainActivity.class);
-
-                    // currentContext.startActivity(activityChangeIntent);
-
-                    MainActivity.this.startActivity(activityChangeIntent);
-                }
-            });
+    public void attemptsRemaining(int i, int randomNumber, Button Button) {
+        EditText editText = findViewById(R.id.GuessField);
+        String temp = editText.getText().toString();
+        int value = Integer.parseInt(temp);
+        if (i == 5 & value != randomNumber) {
+            Intent activityChangeIntent = new Intent(MainActivity.this, ExaughstedAttempts.class);
+            MainActivity.this.startActivity(activityChangeIntent);
+            Intent passNumber = new Intent(MainActivity.this, ExaughstedAttempts.class);
+            passNumber.putExtra("randomNumber", randomNumber);
+            startActivity(passNumber);
 
 
         }

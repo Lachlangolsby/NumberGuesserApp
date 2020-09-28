@@ -8,31 +8,28 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class CorrectGuess extends AppCompatActivity {
+public class ExaughstedAttempts extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_correct_guess);
+        setContentView(R.layout.activity_exaughsted_attempts);
 
         Intent intent = getIntent();
         int randomNumber = intent.getIntExtra("randomNumber", 0);
-        TextView correctNumber = (TextView) findViewById(R.id.title3);
-        correctNumber.setText("The Number Was: " + Integer.toString(randomNumber));
+        TextView correctNumber = (TextView) findViewById(R.id.number);
+        correctNumber.setText(Integer.toString(randomNumber));
 
-
-        Button Button = (Button) findViewById(R.id.againButton);
+        Button Button = (Button) findViewById(R.id.button);
 
         Button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent activityChangeIntent = new Intent(CorrectGuess.this, MainActivity.class);
-                CorrectGuess.this.startActivity(activityChangeIntent);
+                Intent activityChangeIntent = new Intent(ExaughstedAttempts.this, MainActivity.class);
+                ExaughstedAttempts.this.startActivity(activityChangeIntent);
 
 
             }
 
         });
-
     }
 }
-
