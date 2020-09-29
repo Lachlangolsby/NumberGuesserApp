@@ -19,30 +19,32 @@ public class MainActivity<difference> extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 1. Creating Randomly generated number to be guessed between 1 - 100
         Random r = new Random();
         int low = 0;
-        int high = 10;
-        final int randomResult = r.nextInt(high - low) + low;
+        int high = 100;
+        final int randomResult = r.nextInt(high - low) + 1;
 
-
-        final Button Button = (Button) findViewById(R.id.GuessButton);
-
-        final TextView tv3 = (TextView) findViewById(R.id.Error);
+        // 2. identifying button and text view from XML file to be changed
+        final Button Button = findViewById(R.id.GuessButton);
+        final TextView tv3 = findViewById(R.id.Error);
 
         Button.setOnClickListener(new View.OnClickListener() {
-
+            // 4. Declaring variable to count the amount of attempts
             int i = 0;
 
+            // 5. Series of actions to be carried out if button is clicked, as well as assessing
+            //    Validity of user input
             @Override
             public void onClick(View view) {
                 EditText editText = findViewById(R.id.GuessField);
                 String temp = editText.getText().toString();
                 if (!temp.equals("")) {
                     i++;
-                    assessGuess(randomResult,temp, i);
-                    attemptsRemaining(i, randomResult, Button);
+                    assessGuess(randomResult, temp, i);
+                    attemptsRemaining(i, randomResult);
                     tv3.setText("");
-                }else {
+                } else {
                     tv3.setText("Please enter a valid number");
                 }
             }
@@ -50,52 +52,55 @@ public class MainActivity<difference> extends AppCompatActivity {
 
     }
 
+    // AssessGuess gives feedback to users based on their guess
     public void assessGuess(int randomNumber, String numberGuessed, int count) {
-        TextView tv = (TextView) findViewById(R.id.highLowText);
-        TextView tv2 = (TextView) findViewById(R.id.Attempts);
 
+        // 1. Declaring text views from XML file to be changed
+        TextView tv =  findViewById(R.id.highLowText);
+        TextView tv2 =  findViewById(R.id.Attempts);
 
-
-
-
+        // 2. Parsing user feedback and assessing proximity to the random number
         int value = Integer.parseInt(numberGuessed);
         int difference = value - randomNumber;
 
-
-
-
+        // 3. Based on proximity to number telling user to guess higher or lower by changing TextViews
         if (difference < 0) {
-                tv.setText("The number is higher than your previous guess !!");
-                tv2.setText("You Have " + (5 - count) + " Attempts Remaining");
+            tv.setText("The number is higher than your previous guess !!");
+            tv2.setText("You Have " + (5 - count) + " Attempts Remaining");
 
-            } else if (difference > 0) {
-                tv.setText("The number is Lower than your previous guess !!");
-                tv2.setText("You Have " + (5 - count) + " Attempts Remaining");
+        } else if (difference > 0) {
+            tv.setText("The number is Lower than your previous guess !!");
+            tv2.setText("You Have " + (5 - count) + " Attempts Remaining");
 
-            } else if (difference == 0) {
-                Intent activityChangeIntent = new Intent(MainActivity.this, CorrectGuess.class);
-                MainActivity.this.startActivity(activityChangeIntent);
-                Intent passNumber = new Intent(MainActivity.this, CorrectGuess.class);
-                passNumber.putExtra("randomNumber", randomNumber);
-                startActivity(passNumber);
+        } else if (difference == 0) {
+            // 4. If guess is correct redirecting to CorrectGuess class
+            Intent activityChangeIntent = new Intent(MainActivity.this, CorrectGuess.class);
+            MainActivity.this.startActivity(activityChangeIntent);
+            // 5. Using Intents to pass random number through to Correct Guess for UI
+            Intent passNumber = new Intent(MainActivity.this, CorrectGuess.class);
+            passNumber.putExtra("randomNumber", randomNumber);
+            startActivity(passNumber);
 
 
-
-            }
+        }
 
 
     }
 
-
-
-    public void attemptsRemaining(int i, int randomNumber, Button Button) {
+    // Attempts remaining assess whether 5 attempts is over an directs them to the
+    // Exhausted Attempts  Class
+    public void attemptsRemaining(int i, int randomNumber) {
+        // 1. Retrieving Guessed number
         EditText editText = findViewById(R.id.GuessField);
         String temp = editText.getText().toString();
         int value = Integer.parseInt(temp);
+
+        // 2. Assessing if 5th guess is incorrect, if so  using intent to change page and pass the
+        // random number through to ExhaustedAttempts class for the UI.
         if (i == 5 & value != randomNumber) {
-            Intent activityChangeIntent = new Intent(MainActivity.this, ExaughstedAttempts.class);
+            Intent activityChangeIntent = new Intent(MainActivity.this, ExhaustedAttempts.class);
             MainActivity.this.startActivity(activityChangeIntent);
-            Intent passNumber = new Intent(MainActivity.this, ExaughstedAttempts.class);
+            Intent passNumber = new Intent(MainActivity.this, ExhaustedAttempts.class);
             passNumber.putExtra("randomNumber", randomNumber);
             startActivity(passNumber);
 
