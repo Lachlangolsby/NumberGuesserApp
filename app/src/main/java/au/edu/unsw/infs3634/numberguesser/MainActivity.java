@@ -2,6 +2,7 @@ package au.edu.unsw.infs3634.numberguesser;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -35,6 +36,7 @@ public class MainActivity<difference> extends AppCompatActivity {
 
             // 5. Series of actions to be carried out if button is clicked, as well as assessing
             //    Validity of user input
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
                 EditText editText = findViewById(R.id.GuessField);
@@ -53,6 +55,7 @@ public class MainActivity<difference> extends AppCompatActivity {
     }
 
     // AssessGuess gives feedback to users based on their guess
+    @SuppressLint("SetTextI18n")
     public void assessGuess(int randomNumber, String numberGuessed, int count) {
 
         // 1. Declaring text views from XML file to be changed
@@ -72,7 +75,7 @@ public class MainActivity<difference> extends AppCompatActivity {
             tv.setText("The number is Lower than your previous guess !!");
             tv2.setText("You Have " + (5 - count) + " Attempts Remaining");
 
-        } else if (difference == 0) {
+        } else {
             // 4. If guess is correct redirecting to CorrectGuess class
             Intent activityChangeIntent = new Intent(MainActivity.this, CorrectGuess.class);
             MainActivity.this.startActivity(activityChangeIntent);

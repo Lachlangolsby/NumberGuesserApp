@@ -2,4 +2,11 @@
     <string name="app_name">NumberGuesser</string>
     <string name="play_again">Play Again</string>
     <string name="you_are_correct">You Are Correct !!!</string>
+    <string name="you_lose">You Lose !!!!!</string>
+    <string name="_1">1</string>
+    <string name="the_correct_number_was">The Correct Number Was:</string>
+    <string name="guess_the_random_number">Guess The Random Number</string>
+    <string name="guess">Guess</string>
+    <string name="between_1_100">Between 1 – 100</string>
+    <string name="you_have_5_attempts_remaining">You Have 5 Attempts Remaining</string>
 </resources>
