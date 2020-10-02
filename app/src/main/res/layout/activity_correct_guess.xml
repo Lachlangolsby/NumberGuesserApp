@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id = "@+id/layout"
+    android:background="@drawable/gradientlist3"
     tools:context=".CorrectGuess">
 
     <Button
@@ -11,7 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="200dp"
-        android:text="Play Again"
+        android:background="#08F612"
+        android:text="@string/play_again"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -26,7 +29,8 @@
         android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toTopOf="@+id/title3"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:drawable/star_big_on" />
+        app:srcCompat="@android:drawable/star_big_on"
+        android:contentDescription="@string/todo" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -37,7 +41,8 @@
         android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toTopOf="@+id/title3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/star_big_on" />
+        app:srcCompat="@android:drawable/star_big_on"
+        android:contentDescription="@string/todo" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -48,7 +53,8 @@
         android:layout_marginRight="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Title"
-        app:srcCompat="@android:drawable/star_big_on" />
+        app:srcCompat="@android:drawable/star_big_on"
+        android:contentDescription="@string/todo" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -59,7 +65,8 @@
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Title"
-        app:srcCompat="@android:drawable/star_big_on" />
+        app:srcCompat="@android:drawable/star_big_on"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/Title"
@@ -67,10 +74,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="196dp"
-        android:fontFamily="@font/alfa_slab_one"
-        android:text="You Guessed Correct !!!"
-        android:textColor="#03A9F4"
-        android:textSize="18sp"
+        android:fontFamily="@font/press_start_2p"
+        android:text="@string/you_guessed_correct"
+        android:textColor="#000000"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/againButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,10 +87,10 @@
         android:id="@+id/title3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/alfa_slab_one"
-        android:text="You Guessed Correct !!!"
-        android:textColor="#03A9F4"
-        android:textSize="18sp"
+        android:fontFamily="@font/press_start_2p"
+        android:text="@string/you_guessed_correct"
+        android:textColor="#000000"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/againButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -9,4 +9,8 @@
     <string name="guess">Guess</string>
     <string name="between_1_100">Between 1 – 100</string>
     <string name="you_have_5_attempts_remaining">You Have 5 Attempts Remaining</string>
+    <string name="play_now">Play Now</string>
+    <string name="random_number">Random Number</string>
+    <string name="todo">TODO</string>
+    <string name="you_guessed_correct">You Guessed Correct !!!</string>
 </resources>
