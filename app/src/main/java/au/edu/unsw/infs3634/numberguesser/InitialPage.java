@@ -31,7 +31,7 @@ public class InitialPage extends AppCompatActivity {
         // 1. Creating Randomly generated number to be guessed between 1 - 100
         Random r = new Random();
         int low = 0;
-        int high = 100;
+        int high = 2;
         final int randomResult = r.nextInt(high - low) + 1;
 
         // 2. identifying button and text view from XML file to be changed
@@ -49,7 +49,7 @@ public class InitialPage extends AppCompatActivity {
             public void onClick(View view) {
                 EditText editText = findViewById(R.id.GuessField);
                 String temp = editText.getText().toString();
-                if (!temp.equals("")) {
+                if (!temp.equals("") & !temp.equals("0")) {
                     i++;
                     assessGuess(randomResult, temp, i);
                     attemptsRemaining(i, randomResult);
@@ -67,8 +67,8 @@ public class InitialPage extends AppCompatActivity {
     public void assessGuess(int randomNumber, String numberGuessed, int count) {
 
         // 1. Declaring text views from XML file to be changed
-        TextView tv =  findViewById(R.id.highLowText);
-        TextView tv2 =  findViewById(R.id.Attempts);
+        TextView tv = findViewById(R.id.highLowText);
+        TextView tv2 = findViewById(R.id.Attempts);
 
         // 2. Parsing user feedback and assessing proximity to the random number
         int value = Integer.parseInt(numberGuessed);
@@ -120,4 +120,4 @@ public class InitialPage extends AppCompatActivity {
 
 
     }
-    }
+}

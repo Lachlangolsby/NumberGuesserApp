@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id = "@+id/layout"
     android:background="@drawable/gradientlist3"
     tools:context=".CorrectGuess">
 
@@ -27,10 +27,10 @@
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginBottom="32dp"
+        android:contentDescription="@string/todo"
         app:layout_constraintBottom_toTopOf="@+id/title3"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:drawable/star_big_on"
-        android:contentDescription="@string/todo" />
+        app:srcCompat="@android:drawable/star_big_on" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -39,10 +39,10 @@
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginBottom="32dp"
+        android:contentDescription="@string/todo"
         app:layout_constraintBottom_toTopOf="@+id/title3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/star_big_on"
-        android:contentDescription="@string/todo" />
+        app:srcCompat="@android:drawable/star_big_on" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -51,10 +51,10 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
+        android:contentDescription="@string/todo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Title"
-        app:srcCompat="@android:drawable/star_big_on"
-        android:contentDescription="@string/todo" />
+        app:srcCompat="@android:drawable/star_big_on" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -63,10 +63,10 @@
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="32dp"
+        android:contentDescription="@string/todo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Title"
-        app:srcCompat="@android:drawable/star_big_on"
-        android:contentDescription="@string/todo" />
+        app:srcCompat="@android:drawable/star_big_on" />
 
     <TextView
         android:id="@+id/Title"

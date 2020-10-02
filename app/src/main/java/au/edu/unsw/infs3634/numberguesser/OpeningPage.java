@@ -29,7 +29,7 @@ public class OpeningPage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent activityChangeIntent = new Intent(OpeningPage.this, InitialPage.class);
                 OpeningPage.this.startActivity(activityChangeIntent);
-    }
-});
+            }
+        });
     }
 }
