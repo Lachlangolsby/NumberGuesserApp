@@ -1,10 +1,9 @@
 package au.edu.unsw.infs3634.numberguesser;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class MainActivity<difference> extends AppCompatActivity {
@@ -16,6 +15,7 @@ public class MainActivity<difference> extends AppCompatActivity {
 
         Intent activityChangeIntent = new Intent(MainActivity.this, OpeningPage.class);
         MainActivity.this.startActivity(activityChangeIntent);
+
 
     }
 }

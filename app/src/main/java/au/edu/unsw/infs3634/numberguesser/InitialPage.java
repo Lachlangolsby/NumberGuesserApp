@@ -1,18 +1,23 @@
 package au.edu.unsw.infs3634.numberguesser;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import java.util.Random;
+
+import static au.edu.unsw.infs3634.numberguesser.OpeningPage.mediaPlayer;
+
 
 public class InitialPage extends AppCompatActivity {
 
@@ -21,12 +26,25 @@ public class InitialPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initial_page);
         // Setting background layout from XML file, using Animation drawable to animate the colour
-        // changes
+        // changes.Implementing sound icon for background music using variable from openingPage.
         ConstraintLayout background = findViewById(R.id.layout);
         AnimationDrawable animationDrawable = (AnimationDrawable) background.getBackground();
         animationDrawable.setEnterFadeDuration(1000);
         animationDrawable.setExitFadeDuration(3000);
         animationDrawable.start();
+
+        final ImageView sound = findViewById(R.id.sound);
+        sound.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (mediaPlayer.isPlaying()) {
+                    mediaPlayer.pause();
+                    sound.setColorFilter(Color.argb(255, 127, 255, 0));
+                } else {
+                    mediaPlayer.start();
+                    sound.setColorFilter(Color.argb(255, 255, 0, 0));
+                }
+            }
+        });
 
         // 1. Creating Randomly generated number to be guessed between 1 - 100
         Random r = new Random();
@@ -50,7 +68,7 @@ public class InitialPage extends AppCompatActivity {
                 EditText editText = findViewById(R.id.GuessField);
                 String temp = editText.getText().toString();
 
-                if ((!temp.equals("") && Integer.parseInt(temp)!=0 && Integer.parseInt(temp) <101) ) {
+                if ((!temp.equals("") && Integer.parseInt(temp) != 0 && Integer.parseInt(temp) < 101)) {
                     i++;
                     assessGuess(randomResult, temp, i);
                     attemptsRemaining(i, randomResult);
