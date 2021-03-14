@@ -22,6 +22,7 @@ import static au.edu.unsw.infs3634.numberguesser.OpeningPage.mediaPlayer;
 public class InitialPage extends AppCompatActivity {
 
     @Override
+    
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initial_page);
